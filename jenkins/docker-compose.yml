@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+    jenkins:
+      # TODO add gpg and certificates for safe container uploads
+      build:
+        context: .
+        dockerfile: jenkins.Dockerfile
+      image: jenkins_docker:latest
+      volumes:
+      - ./jenkins-docker-certs:/certs/client
+      - ./jenkins-data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      ports:
+      - 8080:8080
+      - 50000:50000
+      restart: unless-stopped
+      environment:
+        DOCKER_TLS_CERTDIR: /certs
+        TZ: ${TZ}

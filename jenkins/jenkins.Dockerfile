@@ -7,7 +7,7 @@ USER root
 # Install docker and create docker group
 RUN curl -sSL https://get.docker.com/ | sh
 
-# note: this is not enough on some systems
+# note: this is not enough on WSL2 hosts
 # docker group gid and jenkins user uid
 # have to match on both host and container
 RUN usermod -a -G docker jenkins
@@ -15,7 +15,9 @@ RUN newgrp docker
 USER jenkins
 
 
-# lazy workaround: this will set jenkins user permissions on host side...
+## lazy workaround for Windows/WSL2: this will set jenkins user permissions
+## on host side, which is not advicable from security point of view.
+
 # USER root
 # RUN apt-get update && \
 #     apt-get install -y --no-install-recommends \

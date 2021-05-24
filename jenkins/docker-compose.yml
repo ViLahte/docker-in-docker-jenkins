@@ -1,7 +1,6 @@
 version: "3.7"
 services:
     jenkins:
-      # TODO add gpg and certificates for safe container uploads
       build:
         context: .
         dockerfile: jenkins.Dockerfile

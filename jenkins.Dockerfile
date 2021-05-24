@@ -16,7 +16,7 @@ USER jenkins
 
 
 ## lazy workaround for Windows/WSL2: this will set jenkins user permissions
-## on host side, which is not advicable from security point of view.
+## on host side, which is not advisable from security point of view.
 
 # USER root
 # RUN apt-get update && \

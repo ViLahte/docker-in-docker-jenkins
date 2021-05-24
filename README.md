@@ -2,7 +2,7 @@
 A repository for running Docker-in-Docker Jenkins locally.
 
 
-After Jenkins has taken its time starting up, check initial admin password:
+After Jenkins has taken its time starting up, check the initial admin password:
 
 ```bash
 docker-compose ps
